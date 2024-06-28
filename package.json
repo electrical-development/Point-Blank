@@ -1,19 +1,31 @@
 {
-  "name": "point-blank",
+  "name": "uv-app",
   "version": "1.0.0",
-  "description": "A uv Based Proxy for Titanium Networks 2024 Proxathon!",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
+  "description": "Ultraviolet instance",
+  "type": "module",
+  "engines": {
+    "npm": ">=7.0.0",
+    "node": ">=16.0.0"
   },
-  "keywords": [],
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "keywords": [
+    "proxy"
+  ],
   "author": "",
-  "license": "ISC",
+  "license": "GPL-3.0-or-later",
   "dependencies": {
-    "@mercuryworkshop/bare-mux": "^1.1.1",
+    "@mercuryworkshop/bare-mux": "^1.1.0",
     "@mercuryworkshop/epoxy-transport": "^1.1.0",
     "@titaniumnetwork-dev/ultraviolet": "^3.1.2",
-    "@tomphttp/bare-server-node": "^2.0.3",
-    "express": "^4.19.2"
+    "express": "^4.18.2",
+    "ultraviolet-static": "github:titaniumnetwork-dev/Ultraviolet-Static",
+    "wisp-server-node": "^1.0.6",
+    "ws": "^8.16.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.36.0",
+    "prettier": "^2.8.4"
   }
 }
