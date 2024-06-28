@@ -1,7 +1,8 @@
 .input {
-    width: 10%;
-    height: 4vh;
+    width: 15%;
+    height: 5vh;
     background-color: #151515;
     border-radius: 5px;
-    border: 2px solid #4a4a4a
+    border: 2px solid #4a4a4a;
+    text-align: center;
 }
