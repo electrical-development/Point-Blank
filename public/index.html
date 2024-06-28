@@ -1,35 +1,41 @@
 <!DOCTYPE html>
-<html lang="en"
-    ></html>
+<html lang="en">
 <head>
-    <!--im gay - nobodycares-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Point Blank</title>
     <meta property="og:title" content="Point Blank">
     <meta property="og:description" content="A proxy for the Titanium Network 2024 proxathon vote for it please">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.zinc.min.css"/>
+    <link rel="stylesheet" href="./assets/css/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-<link rel="stylesheet" href="./assets/css/index.css">
-
-<!--Ultraviolet-->
-<script src="uv/uv.bundle.js"></script>
-<script src="uv/uv.config.js"></script>
-
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <meta rel="icon" type="image/x-icon" href="./favicon.png">
     <style>
         body {
-            background-color: #151515;
             padding: 0px;
             margin: 0;
         }
-        .poppins-semibold {
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  font-style: normal;
-}
+        .bebas-neue-regular {
+            font-family: "Bebas Neue", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
 
+        #uv-address {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* tf did you do to the index.css lol */
+        /* its gone just like ur dad */ 
+        /* you failed so many times trying to do that lol */
+        /* holy shit but real*/
+        /* lmao you failed 18 times trying to put * */
+        /* :skull: */ 
+        /* we are keeping this in lol */
 
     </style>
 </head>
@@ -38,13 +44,13 @@
             menu
             </span>
     <center>
-        <h1 style="color: white;" class="poppins-semibold">Point Blank</h1>
-        <h2><span id="subtitle" class="poppins-semibold" style="color: white;">...</span></h2>
+        <h1 style="color: white;" class="bebas-neue-regular">Point Blank</h1>
+        <h2><span id="subtitle" class="bebas-neue-regular" style="color: white;">...</span></h2>
         <form class="form" id="uv-form">
             <input class="input" id="uv-search-engine" value="https://google.com/q?="
                 type="hidden" />
-            <input class="input" id="uv-address" type="text" placeholder="Enter a URL or Search"
-                style="color: white;" class="form__input" />  <div class="desc left-margin">
+            <input class="input" id="uv-address" type="search" placeholder="Enter a URL or Search"
+                style="color: white;" class="form__input" name="search"/>  <div class="desc left-margin">
                     <p id="uv-error"></p>
                     <pre id="uv-error-code"></pre>
                 </div>
@@ -60,10 +66,11 @@
 
     // Change this or add subtitles
     var tell = [
-        "dingus is cute :3",
+        "dingus is the best :3",
         "Case Closed, Gang.",
         "Proxathon You Say?",
-        "dingus is good but play451 is better" // im still better
+        "yes play451 is still better",
+        "vote for us in the proxathon for a free cookie"
     ];
 
     var howmany = tell.length;
