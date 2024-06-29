@@ -6,3 +6,10 @@ A UV based proxy For TN 2024 Proxathon theme of minimalism. Made by the Electric
 # How to use
 
 We are still in development so please wait
+
+
+
+
+
+
+also dingus lowkey chill like that
