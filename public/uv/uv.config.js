@@ -1,7 +1,6 @@
 /*global Ultraviolet*/
 self.__uv$config = {
-    prefix: '/service/point/blank/',
-    bare: '/bare/',
+    prefix: '/uv/point-blank/',
     encodeUrl: Ultraviolet.codec.xor.encode,
     decodeUrl: Ultraviolet.codec.xor.decode,
     handler: '/uv/uv.handler.js',

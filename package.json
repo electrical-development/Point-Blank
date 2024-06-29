@@ -8,7 +8,7 @@
     "node": ">=16.0.0"
   },
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node index.js"
   },
   "keywords": [
     "proxy"
@@ -22,7 +22,7 @@
     "@tomphttp/bare-server-node": "^2.0.3",
     "express": "^4.18.2",
     "ultraviolet-static": "github:titaniumnetwork-dev/Ultraviolet-Static",
-    "wisp-server-node": "^1.0.6",
+    "wisp-server-node": "^1.1.0",
     "ws": "^8.16.0"
   },
   "devDependencies": {
