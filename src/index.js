@@ -4,11 +4,12 @@ import { uvPath } from "@titaniumnetwork-dev/ultraviolet";
 import { epoxyPath } from "@mercuryworkshop/epoxy-transport";
 import { baremuxPath } from "@mercuryworkshop/bare-mux";
 import { hostname } from "node:os";
-import wisp from "wisp-server-node"
+import { createBareServer } from '@tomphttp/bare-server-node';
 
 const app = express();
 // Load our publicPath first and prioritize it over UV.
 app.use(express.static("./public"));
+const bare = createBareServer("/bare/");
 // Load vendor files last.
 // The vendor's uv.config.js won't conflict with our uv.config.js inside the publicPath directory.
 app.use("/uv/", express.static(uvPath));
@@ -18,15 +19,19 @@ app.use("/baremux/", express.static(baremuxPath));
 const server = createServer();
 
 server.on("request", (req, res) => {
-  res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
-  res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
-  app(req, res);
+  if (bare.shouldRoute(req)) {
+      bare.routeRequest(req, res);
+  } else {
+      app(req, res);
+  }
 });
+
 server.on("upgrade", (req, socket, head) => {
-  if (req.url.endsWith("/wisp/"))
-    wisp.routeRequest(req, socket, head);
-  else
-    socket.end();
+  if (bare.shouldRoute(req)) {
+      bare.routeUpgrade(req, socket, head);
+  } else {
+      socket.end();
+  }
 });
 
 let port = parseInt(process.env.PORT || "");
