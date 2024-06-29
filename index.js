@@ -5,10 +5,12 @@ import { epoxyPath } from "@mercuryworkshop/epoxy-transport";
 import { baremuxPath } from "@mercuryworkshop/bare-mux";
 import { hostname } from "node:os";
 import { createBareServer } from '@tomphttp/bare-server-node';
+import wisp from "wisp-server-node";
+
 
 const app = express();
 // Load our publicPath first and prioritize it over UV.
-app.use(express.static("./public"));
+app.use(express.static("public"));
 const bare = createBareServer("/bare/");
 // Load vendor files last.
 // The vendor's uv.config.js won't conflict with our uv.config.js inside the publicPath directory.
@@ -20,17 +22,19 @@ const server = createServer();
 
 server.on("request", (req, res) => {
   if (bare.shouldRoute(req)) {
-      bare.routeRequest(req, res);
+    bare.routeRequest(req, res);
   } else {
-      app(req, res);
+    app(req, res);
   }
 });
 
 server.on("upgrade", (req, socket, head) => {
   if (bare.shouldRoute(req)) {
-      bare.routeUpgrade(req, socket, head);
+    bare.routeUpgrade(req, socket, head);
+  } else if (req.url.endsWith("/wisp/")) {
+    wisp.routeRequest(req, socket, head);
   } else {
-      socket.end();
+    socket.end();
   }
 });
 
