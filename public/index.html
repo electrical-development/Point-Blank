@@ -174,6 +174,7 @@
                 <a href="https://github.com/electrical-development/Point-Blank" target="_blank" class="github-button">GitHub</a>
         </div>
 <script>
+document.addEventListener('DOMContentLoaded', function() {
     // subtitle
     function changeSub(num) {
         document.getElementById("subtitle").innerText = tell[num];
@@ -240,6 +241,10 @@
         });
 
     document.querySelector('svg').addEventListener('click', toggleSidebar);
+	document.getElementById('uv-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+    });
+});
 
 
     </script>
