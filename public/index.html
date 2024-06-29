@@ -38,6 +38,23 @@
             margin-top: 150px; 
         }
 
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -250px; 
+            width: 250px;
+            height: 100%;
+            background-color: #333;
+            overflow-x: hidden;
+            transition: 0.5s;
+            z-index: 1;
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+
         /* tf did you do to the index.css lol */
         /* its gone just like ur dad */ 
         /* you failed so many times trying to do that lol */
@@ -70,7 +87,12 @@
                 </div>
         </form>
     </center>
-    <script>
+        <div id="sidebar" class="sidebar">
+            <a href="#">pornhub.com</a>
+            <a href="#">settings.html</a>
+            <a href="#">github.com/electrical-development/point-blank</a>
+        </div>
+<script>
     // Function to change the subtitle
     function changeSub(num) {
         document.getElementById("subtitle").innerText = tell[num];
@@ -97,6 +119,21 @@
         document.getElementById("subtitle").innerText = tell[num];
         return sub;
     }
+
+        // sidebar thing
+       function toggleSidebar() {
+            var sidebar = document.getElementById('sidebar');
+            if (sidebar.style.left === "-250px") {
+                sidebar.style.left = "0";
+                sidebar.classList.add('active');
+            } else {
+                sidebar.style.left = "-250px";
+                sidebar.classList.remove('active');
+            }
+        }
+        document.querySelector('svg').addEventListener('click', toggleSidebar);
+
+
     </script>
 </body>
 </html>
