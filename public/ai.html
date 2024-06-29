@@ -5,31 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Point Blank</title>
     <meta property="og:title" content="Point Blank">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.zinc.min.css"/>
     <meta property="og:description" content="A proxy for the Titanium Network 2024 proxathon vote for it please">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.zinc.min.css"/>
+    <link rel="stylesheet" href="./assets/css/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
     <script src="https://kit.fontawesome.com/fcaf79e23b.js" crossorigin="anonymous"></script>
-
-    <!--Ultraviolet-->
-    <script src="./assets/js/script.js"></script>
-    <script src="/uv/uv.bundle.js"></script>
-    <script src="/uv/uv.config.js"></script>
-    <script src="./register-sw.js"></script>
     <style>
         body {
             padding: 0px;
             margin: 0;
         }
-        .bebas-neue-regular {
-            font-family: "Roboto", sans-serif;
-            font-weight: 400;
-            font-style: normal;
-        }
-
-        #uv-address {
+        #ai-search {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -41,7 +30,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            margin-top: 150px; 
+            margin-top: 500px; 
         }
 
         .sidebar {
@@ -104,18 +93,6 @@
         }
 
 
-
-
-
-        /* tf did you do to the index.css lol */
-        /* its gone just like ur dad */ 
-        /* you failed so many times trying to do that lol */
-        /* sob the font looks kinda wacky tbh*/
-        /*i think the search bar is too long */
-        /* holy shit but real*/
-        /* lmao you failed 18 times trying to put * */
-        /* :skull: */
-
     </style>
 </head>
 <body>
@@ -124,20 +101,10 @@
         <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0z"/>
     </svg>
 
-    <a href=https://www.ebay.com/itm/375443376460?itmmeta=01J1HAQZRZVGJP81E0H2CVQJQA&hash=item576a2b494c:g:rYUAAOSwk9xmTaHV&itmprp=enc%3AAQAJAAAAwOfwYqAf%2BYCyK1%2FDOsRQCQ5ItR50AdwvFKnceBW6sktc4qhtiLNbdb4RHhJklxuCTzCkk53n%2FsSE%2FKzDEd3WljojWwwF8XeLK4vcBYGX7CMoycHXF4QeJpEZWIUqMdEg%2BhY0txhCy%2BCx2HM6WP5jEpDbzj3UIkRbRNP0JFPtvoJrf1HNmhZN1OXpOfVL7kS%2F1Ux0qbdD%2B4Q1%2B5i5hnneujtjFhDfUQ53%2BvD%2BzqywZD8U7N1U5fygSXgfAgP8qlVlag%3D%3D%7Ctkp%3ABk9SR87836qMZA></a>
-    </a>
-    
     <div class="gay">
         <center>
-            <h1 style="color: white;" class="bebas-neue-regular">Point Blank</h1>
-            <h2><span id="subtitle" class="bebas-neue-regular" style="color: white;">The Subtitle Is Loading :D</span></h2>
-            <form class="form" id="uv-form">
-                <input class="input" id="uv-search-engine" value="https://google.com/search?q=" type="hidden" />
-                <input class="input" id="uv-address" type="search" placeholder="Enter a URL or Search" style="color: white;" class="input" />  
-                <div class="desc left-margin">
-                    <p id="uv-error"></p>
-                    <pre id="uv-error-code"></pre>
-                </div>
+            <form class="form" id="ai">
+                <input class="input" id="ai-search" placeholder="Ask anything" style="color: white;" class="form__input" name="search"/>  
                 <div class="desc left-margin">
                 </div>
             </form>
@@ -158,34 +125,6 @@
                 <li><a href="/ai.html"><i class="fa-solid fa-phone"></i> Ai</a></li>
         </div>
 <script>
-    // subtitle
-    function changeSub(num) {
-        document.getElementById("subtitle").innerText = tell[num];
-    }
-
-    var tell = [
-        "dingus is the best :3",
-        "Case Closed, Gang.",
-        "Proxathon You Say?",
-        "yes play451 is still better",
-        "vote for us in the proxathon for a free cookie",
-        "i hate school",
-        "drake leak sneak peak",
-        "https://www.youtube.com/watch?v=6m8Ln1yqeJE"
-    ];
-
-    var howmany = tell.length;
-    var randomIndex = Math.floor(Math.random() * howmany);
-
-    document.getElementById("subtitle").innerText = tell[randomIndex];
-
-    function changeSplash(num) {
-        var sub = "Set current splash to splash " + num + ", " + tell[num];
-        document.getElementById("subtitle").innerText = tell[num];
-        return sub;
-    }
-
-        // sidebar thing
        function toggleSidebar() {
             var sidebar = document.getElementById('sidebar');
             var mainContent = document.getElementById('main-content');
@@ -203,11 +142,12 @@
       const closeButton = document.getElementById('close-sidebar-btn');
             closeButton.addEventListener('click', function() {
             const sidebar = document.getElementById('sidebar');
+        if (sidebar.classList.contains('active')) {
             sidebar.style.left = '-250px';
             sidebar.classList.remove('active');
             document.getElementById('main-content').classList.remove('blur-background');
-            }
-    );
+         }
+    });
 
         document.addEventListener('mousedown', function(event) {
             const sidebar = document.getElementById('sidebar');
@@ -223,7 +163,10 @@
         });
 
     document.querySelector('svg').addEventListener('click', toggleSidebar);
-    registerSW()
+
+    console.log("")
+
+
     </script>
 </body>
 </html>
