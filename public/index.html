@@ -64,8 +64,9 @@
         }
 
         .sidebar a:hover {
-            background-color: #222; 
+            background-color: #005f73; 
             color: #ddd;
+            transform: translateY(-2px); 
         }
 
         #close-sidebar-btn {
@@ -76,6 +77,12 @@
             background: transparent;
             border: none;
             cursor: pointer;
+            border-radius: 50%;
+            padding: 8px;
+        }
+
+        #close-sidebar-btn:hover {
+            color: #red;
         }
 
         #i-hate-life {
@@ -97,7 +104,6 @@
         #main-content {
             position: relative;
         }
-
 
 
 
@@ -144,9 +150,10 @@
            </div>
             <button id="close-sidebar-btn">&times;</button>
             <div id="i-hate-life">
-                <li><a href="/settings.html"><i class="fa-solid fa-settings"></i> Settings</a></li>
-                <li><a href="/games.html"><i class="fa-solid fa-gamepad"></i> Games</a></li>
-                <li><a href="/apps.html"><i class="fa-solid fa-phone"></i> Apps</a></li>
+                    <a href="/settings.html"><i class="fa-solid fa-gear"></i> Settings</a>
+                    <a href="/games.html"><i class="fa-solid fa-gamepad"></i> Games</a>
+                    <a href="/apps.html"><i class="fa-solid fa-phone"></i> Apps</a>
+
         </div>
 <script>
     // subtitle
