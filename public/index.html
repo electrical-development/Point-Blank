@@ -44,15 +44,61 @@
             left: -250px; 
             width: 250px;
             height: 100%;
-            background-color: #333;
             overflow-x: hidden;
             transition: 0.5s;
             z-index: 1;
+            background-color: #000d1a;
         }
 
         .sidebar.active {
             left: 0;
         }
+
+        .sidebar a {
+            display: block;
+            color: #ffffff; 
+            text-decoration: none;
+            padding: 10px 15px;
+            border-bottom: 1px solid #444;
+        }
+
+        .sidebar a:hover {
+            background-color: #222; 
+            color: #ddd;
+        }
+
+        #close-sidebar-btn {
+            position: absolute;
+            top: -20px;
+            right: -10px;
+            font-size: 36px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        #i-hate-life {
+            margin-top: 15px;
+        }
+
+        .please-tell-me-how-to-use-pico-css {
+            width: 100%;
+            top: 10px;
+            text-align: center;
+            width: auto;
+        }
+
+        .blur-background {
+            filter: blur(5px);
+            transition: filter 0.5s ease-in-out;
+        }
+
+        #main-content {
+            position: relative;
+        }
+
+
+
 
 
         /* tf did you do to the index.css lol */
@@ -67,38 +113,46 @@
     </style>
 </head>
 <body>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="40px" height="40px" style="cursor: pointer; color: white; padding: 10px;">
-            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0z"/>
-            </svg>
+    <div id="main-content">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="40px" height="40px" style="cursor: pointer; color: white; padding: 10px;">
+        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0z"/>
+    </svg>
 
     <div class="gay">
-    <center>
-        <h1 style="color: white;" class="bebas-neue-regular">Point Blank</h1>
-        <h2><span id="subtitle" class="bebas-neue-regular" style="color: white;">...</span></h2>
-        <form class="form" id="uv-form">
-            <input class="input" id="uv-search-engine" value="https://google.com/q?="
-                type="hidden" />
-            <input class="input" id="uv-address" type="search" placeholder="Enter a URL or Search"
-                style="color: white;" class="form__input" name="search"/>  <div class="desc left-margin">
+        <center>
+            <h1 style="color: white;" class="bebas-neue-regular">Point Blank</h1>
+            <h2><span id="subtitle" class="bebas-neue-regular" style="color: white;">...</span></h2>
+            <form class="form" id="uv-form">
+                <input class="input" id="uv-search-engine" value="https://google.com/q?=" type="hidden" />
+                <input class="input" id="uv-address" type="search" placeholder="Enter a URL or Search" style="color: white;" class="form__input" name="search"/>  
+                <div class="desc left-margin">
                     <p id="uv-error"></p>
                     <pre id="uv-error-code"></pre>
                 </div>
                 <div class="desc left-margin">
                 </div>
+            </form>
+        </center>
+    </div>
+</div>
         </form>
     </center>
         <div id="sidebar" class="sidebar">
-            <a href="#">pornhub.com</a>
-            <a href="#">settings.html</a>
-            <a href="#">github.com/electrical-development/point-blank</a>
+           <div class="please-tell-me-how-to-use-pico-css">
+            <h3>Menu</h3>
+           </div>
+            <button id="close-sidebar-btn">&times;</button>
+            <div id="i-hate-life">
+            <a href="#">Settings</a>
+            <a href="#">Games</a>
+            <a href="#">Apps</a>
         </div>
 <script>
-    // Function to change the subtitle
+    // subtitle
     function changeSub(num) {
         document.getElementById("subtitle").innerText = tell[num];
     }
 
-    // Change this or add subtitles
     var tell = [
         "dingus is the best :3",
         "Case Closed, Gang.",
@@ -113,7 +167,6 @@
 
     document.getElementById("subtitle").innerText = tell[randomIndex];
 
-    // Function to change the subtitle
     function changeSplash(num) {
         var sub = "Set current splash to splash " + num + ", " + tell[num];
         document.getElementById("subtitle").innerText = tell[num];
@@ -123,15 +176,42 @@
         // sidebar thing
        function toggleSidebar() {
             var sidebar = document.getElementById('sidebar');
+            var mainContent = document.getElementById('main-content');
             if (sidebar.style.left === "-250px") {
                 sidebar.style.left = "0";
                 sidebar.classList.add('active');
+                document.getElementById('main-content').classList.add('blur-background');
             } else {
                 sidebar.style.left = "-250px";
                 sidebar.classList.remove('active');
+                document.getElementById('main-content').classList.remove('blur-background');
             }
         }
-        document.querySelector('svg').addEventListener('click', toggleSidebar);
+
+      const closeButton = document.getElementById('close-sidebar-btn');
+            closeButton.addEventListener('click', function() {
+            const sidebar = document.getElementById('sidebar');
+        if (sidebar.classList.contains('active')) {
+            sidebar.style.left = '-250px';
+            sidebar.classList.remove('active');
+            document.getElementById('main-content').classList.remove('blur-background');
+         }
+    });
+
+        document.addEventListener('mousedown', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            const closeButton = document.getElementById('close-sidebar-btn');
+
+            if (!sidebar.contains(event.target) &&!closeButton.contains(event.target)) {
+                if (sidebar.classList.contains('active')) {
+                    sidebar.style.left = '-250px';
+                    sidebar.classList.remove('active');
+                    document.getElementById('main-content').classList.remove('blur-background');
+                }
+            }
+        });
+
+    document.querySelector('svg').addEventListener('click', toggleSidebar);
 
 
     </script>
