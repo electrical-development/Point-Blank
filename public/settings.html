@@ -170,7 +170,7 @@
 
         <div class="settings-container">
             <div class="settings-card">
-                    <input type="checkbox" >Toggle Cloaking</input>
+                    <input type="checkbox" id="cloaking">Toggle Cloaking</input>
                     <span class="slider round"></span>
             </div>
         </div>
@@ -198,21 +198,21 @@
             </a>
         </div>
         <script>
+            if (document.getElementById('cloaking').checked) {
+                localStorage.setItem('cloaking', 'true');
+                console.log('clk true ls')
+            } 
+            if (localStorage.getItem('cloaking') === 'true') {
+                document.getElementById('cloaking').checked = true;
+                console.log('clk true ls')
+            }
+            if (localStorage.getItem('cloaking') === 'false') {
+                document.getElementById('cloaking').checked = false;
+            }
+            if (!document.getElementById('cloaking').checked) {
+                localStorage.setItem('cloaking', 'false');
+            }
             document.addEventListener('DOMContentLoaded', function () {
-                // subtitle
-
-                var tell = [
-                    "dingus is the best :3",
-                    "Case Closed, Gang.",
-                    "Proxathon You Say?",
-                    "yes play451 is still better",
-                    "vote for us in the proxathon for a free cookie",
-                    "i hate school",
-                    "How tf does this even work?",
-                    "No crypto miners here!",
-                    "yea ima add a xmr miner",
-                    "can we get one of these messages on 2b2t motd"
-                ];
 
                 var howmany = tell.length;
                 var randomIndex = Math.floor(Math.random() * howmany);
@@ -256,22 +256,6 @@
 
                 document.querySelector('svg').addEventListener('click', toggleSidebar);
             });
-
-                async function loadAndRunWasmModule() {
-        try {
-            const wasmModule = await WebAssembly.instantiateStreaming(fetch('/uv/uv.bundle.js'));
-            const result = wasmModule.instance.exports.processData();
-            console.log(result);
-        } catch (error) {
-            if (error.message.includes('Wasm SIMD unsupported')) {
-                console.warn('SIMD operations are not supported in this environment.');
-            } else {
-                throw error;
-            }
-        }
-    }
-
-loadAndRunWasmModule();
-        </script>
+                    </script>
 </body>
 </html>
