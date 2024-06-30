@@ -254,7 +254,21 @@
                 document.querySelector('svg').addEventListener('click', toggleSidebar);
             });
 
+                async function loadAndRunWasmModule() {
+        try {
+            const wasmModule = await WebAssembly.instantiateStreaming(fetch('/uv/uv.bundle.js'));
+            const result = wasmModule.instance.exports.processData();
+            console.log(result);
+        } catch (error) {
+            if (error.message.includes('Wasm SIMD unsupported')) {
+                console.warn('SIMD operations are not supported in this environment.');
+            } else {
+                throw error;
+            }
+        }
+    }
 
+loadAndRunWasmModule();
         </script>
         <script src="/baremux/bare.cjs"></script>
         <script src="/epoxy/index.js"></script>
