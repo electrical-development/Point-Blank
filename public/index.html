@@ -177,7 +177,7 @@
                 <h2><span id="subtitle" class="bebas-neue-regular" style="color: white;">...</span></h2>
                 <form class="form" id="uv-form">
                     <input class="input" id="uv-address" placeholder="Enter a URL or Search"
-                        style="background-color : #1C212C; color: white;" />
+                    style="background-color : #1C212C; color: white;" value="https://www.google.com/search?q=" />
                         <div class="dick">
                             <button data-search-engine="google">Google</button>
                             <button data-search-engine="bing">Bing</button>
@@ -305,20 +305,22 @@
 
             function setSearchEngine(searchEngine) {
                 var query = document.getElementById('uv-address').value;
-            switch (searchEngine) {
-                case 'google':
-                    document.getElementById('uv-address').value = `${query} site:google.com`;
-                    break;
-                case 'bing':
-                    document.getElementById('uv-address').value = `${query} site:bing.com`;
-                    break;
-                case 'duckduckgo':
-                    document.getElementById('uv-address').value = `${query} site:duckduckgo.com`;
-                    break;
-                default:
-                    console.error('Invalid search engine specified.');
+                var baseUrl = "https://www.";
+                switch (searchEngine) {
+                    case 'google':
+                        document.getElementById('uv-address').value = `${baseUrl}${query}google.com/search?q=`;
+                        break;
+                    case 'bing':
+                        document.getElementById('uv-address').value = `${baseUrl}${query}bing.com/search?q=`;
+                        break;
+                    case 'duckduckgo':
+                        document.getElementById('uv-address').value = `${baseUrl}${query}duckduckgo.com/?q=`;
             }
         }
+        
+        setSearchEngine('google');
+
+
 
         </script>
         <script src="/baremux/bare.cjs"></script>
