@@ -30,6 +30,8 @@
             font-family: "Roboto", sans-serif;
             font-weight: 400;
             font-style: normal;
+            font-size: 26px;
+            line-height: 1.2;
         }
 
         #uv-address {
@@ -44,7 +46,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            margin-top: 150px;
+            margin-top: 100px;
         }
 
         .sidebar {
@@ -67,14 +69,14 @@
             display: block;
             color: #ffffff;
             text-decoration: none;
-            padding: 10px 15px;
+            padding: 7px 10px;
             border-bottom: 1px solid #444;
         }
 
         .sidebar a:hover {
             background-color: #005f73;
             color: #ddd;
-            transform: translateY(-2px);
+            transform: translateY(-1px);
         }
 
         #close-sidebar-btn {
@@ -134,6 +136,26 @@
             color: #ddd;
             background-color: #005f73;
         }
+
+        .dick button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            outline: none;
+            transition: background-color 0.3s;
+        }
+
+        .dick button:focus {
+            background-color: #555;
+        }
+
+        .dick button[data-search-engine="google"]:hover,
+        .dick button[data-search-engine="bing"]:hover,
+        .dick button[data-search-engine="duckduckgo"]:hover {
+            background-color: #777; /* Darker grey on hover */
+        }
     </style>
 </head>
 
@@ -151,6 +173,11 @@
                 <form class="form" id="uv-form">
                     <input class="input" id="uv-address" placeholder="Enter a URL or Search"
                         style="background-color : #1C212C; color: white;" />
+                        <div class="dick">
+                            <button data-search-engine="google">Google</button>
+                            <button data-search-engine="bing">Bing</button>
+                            <button data-search-engine="duckduckgo">DuckDuckGo</button>
+                    </div>
                     <div class="desc left-margin">
                         <p id="uv-error"></p>
                         <pre id="uv-error-code"></pre>
@@ -159,8 +186,7 @@
                     </div>
                 </form>
             </center>
-        </div>
-    </div>
+        </div>        
     </form>
     </center>
     <div id="sidebar" class="sidebar">
@@ -184,91 +210,74 @@
             </a>
         </div>
         <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                // subtitle
-                function changeSub(num) {
-                    document.getElementById("subtitle").innerText = tell[num];
-                }
-
-                var tell = [
-                    "dingus is the best :3",
-                    "Case Closed, Gang.",
-                    "Proxathon You Say?",
-                    "yes play451 is still better",
-                    "vote for us in the proxathon for a free cookie",
-                    "i hate school",
-                    "How tf does this even work?",
-                    "No crypto miners here!",
-                    "yea ima add a xmr miner",
-                    "can we get one of these messages on 2b2t motd"
-                ];
-
-                var howmany = tell.length;
-                var randomIndex = Math.floor(Math.random() * howmany);
-
-                document.getElementById("subtitle").innerText = tell[randomIndex];
-
-                function changeSplash(num) {
-                    var sub = "Set current splash to splash " + num + ", " + tell[num];
-                    document.getElementById("subtitle").innerText = tell[num];
-                    return sub;
-                }
-                // sidebar thing
-                function toggleSidebar() {
-                    var sidebar = document.getElementById('sidebar');
-                    var mainContent = document.getElementById('main-content');
-                    if (sidebar.style.left === "-250px") {
-                        sidebar.style.left = "0";
-                        sidebar.classList.add('active');
-                        document.getElementById('main-content').classList.add('blur-background');
-                    } else {
-                        sidebar.style.left = "-250px";
-                        sidebar.classList.remove('active');
-                        document.getElementById('main-content').classList.remove('blur-background');
-                    }
-                }
-
-                const closeButton = document.getElementById('close-sidebar-btn');
-                closeButton.addEventListener('click', function () {
-                    const sidebar = document.getElementById('sidebar');
-                    if (sidebar.classList.contains('active')) {
-                        sidebar.style.left = '-250px';
-                        sidebar.classList.remove('active');
-                        document.getElementById('main-content').classList.remove('blur-background');
-                    }
-                });
-
-                document.addEventListener('mousedown', function (event) {
-                    const sidebar = document.getElementById('sidebar');
-                    const closeButton = document.getElementById('close-sidebar-btn');
-
-                    if (!sidebar.contains(event.target) && !closeButton.contains(event.target)) {
-                        if (sidebar.classList.contains('active')) {
-                            sidebar.style.left = '-250px';
-                            sidebar.classList.remove('active');
-                            document.getElementById('main-content').classList.remove('blur-background');
-                        }
-                    }
-                });
-
-                document.querySelector('svg').addEventListener('click', toggleSidebar);
-            });
-
-                async function loadAndRunWasmModule() {
-        try {
-            const wasmModule = await WebAssembly.instantiateStreaming(fetch('/uv/uv.bundle.js'));
-            const result = wasmModule.instance.exports.processData();
-            console.log(result);
-        } catch (error) {
-            if (error.message.includes('Wasm SIMD unsupported')) {
-                console.warn('SIMD operations are not supported in this environment.');
-            } else {
-                throw error;
+        document.addEventListener('DOMContentLoaded', function () {
+            // subtitle
+            function changeSub(num) {
+                document.getElementById("subtitle").innerText = tell[num];
             }
-        }
-    }
 
-loadAndRunWasmModule();
+            var tell = [
+                "dingus is the best :3",
+                "Case Closed, Gang.",
+                "Proxathon You Say?",
+                "yes play451 is still better",
+                "vote for us in the proxathon for a free cookie",
+                "i hate school",
+                "How tf does this even work?",
+                "No crypto miners here!",
+                "yea ima add a xmr miner",
+                "can we get one of these messages on 2b2t motd"
+            ];
+
+            var howmany = tell.length;
+            var randomIndex = Math.floor(Math.random() * howmany);
+
+            document.getElementById("subtitle").innerText = tell[randomIndex];
+
+            function changeSplash(num) {
+                var sub = "Set current splash to splash " + num + ", " + tell[num];
+                document.getElementById("subtitle").innerText = tell[num];
+                return sub;
+            }
+
+            // Sidebar toggling logic...
+
+            document.querySelector('svg').addEventListener('click', toggleSidebar);
+
+            // Load and run Wasm module...
+            async function loadAndRunWasmModule() {
+                try {
+                    const wasmModule = await WebAssembly.instantiateStreaming(fetch('/uv/uv.bundle.js'));
+                    const result = wasmModule.instance.exports.processData();
+                    console.log(result);
+                } catch (error) {
+                    if (error.message.includes('Wasm SIMD unsupported')) {
+                        console.warn('SIMD operations are not supported in this environment.');
+                    } else {
+                        throw error;
+                    }
+                }
+            }
+
+            loadAndRunWasmModule();
+
+            function setSearchEngine(searchEngine) {
+                var query = document.getElementById('uv-address').value;
+                switch (searchEngine) {
+                    case 'google':
+                        document.getElementById('uv-address').value = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+                        break;
+                    case 'bing':
+                        document.getElementById('uv-address').value = `https://www.bing.com/search?q=${encodeURIComponent(query)}`;
+                        break;
+                    case 'duckduckgo':
+                        document.getElementById('uv-address').value = `https://duckduckgo.com/?q=${encodeURIComponent(query)}`;
+                        break;
+                    default:
+                        console.error('Invalid search engine specified.');
+                }
+            }
+        });
         </script>
         <script src="/baremux/bare.cjs"></script>
         <script src="/epoxy/index.js"></script>
