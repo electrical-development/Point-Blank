@@ -305,20 +305,20 @@
 
             function setSearchEngine(searchEngine) {
                 var query = document.getElementById('uv-address').value;
-                switch (searchEngine) {
-                    case 'google':
-                        document.getElementById('uv-address').value = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
-                        break;
-                    case 'bing':
-                        document.getElementById('uv-address').value = `https://www.bing.com/search?q=${encodeURIComponent(query)}`;
-                        break;
-                    case 'duckduckgo':
-                        document.getElementById('uv-address').value = `https://duckduckgo.com/?q=${encodeURIComponent(query)}`;
-                        break;
-                    default:
-                        console.error('Invalid search engine specified.');
-                }
+            switch (searchEngine) {
+                case 'google':
+                    document.getElementById('uv-address').value = `${query} site:google.com`;
+                    break;
+                case 'bing':
+                    document.getElementById('uv-address').value = `${query} site:bing.com`;
+                    break;
+                case 'duckduckgo':
+                    document.getElementById('uv-address').value = `${query} site:duckduckgo.com`;
+                    break;
+                default:
+                    console.error('Invalid search engine specified.');
             }
+        }
 
         </script>
         <script src="/baremux/bare.cjs"></script>
