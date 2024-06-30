@@ -203,12 +203,10 @@
             }
             if (localStorage.getItem('cloaking') === 'true') {
                 document.getElementById('cloaking').checked = true;
-                console.log('clk true ls')
             } 
             function clktogg_localstorage() {
                 if (document.getElementById('cloaking').checked) {
                 localStorage.setItem('cloaking', 'true');
-                console.log('clk true ls')
             } else if (document.getElementById('cloaking').checked === false) {
                 localStorage.setItem('cloaking', 'false');
             }   
