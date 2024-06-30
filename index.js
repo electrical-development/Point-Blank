@@ -6,6 +6,7 @@ import { baremuxPath } from "@mercuryworkshop/bare-mux";
 import { hostname } from "node:os";
 import { createBareServer } from '@tomphttp/bare-server-node';
 import wisp from "wisp-server-node";
+import { simd } from 'wasm-feature-detect'; const hasSIMD = await simd(); console.log(hasSIMD)
 
 
 const app = express();
