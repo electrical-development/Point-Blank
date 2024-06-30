@@ -170,7 +170,7 @@
 
         <div class="settings-container">
             <div class="settings-card">
-                    <input type="checkbox" id="cloaking">Toggle Cloaking</input>
+                    <input type="checkbox" id="cloaking" onchange="clktogg_localstorage()">Toggle Cloaking</input>
                     <span class="slider round"></span>
             </div>
         </div>
@@ -198,19 +198,20 @@
             </a>
         </div>
         <script>
-            if (document.getElementById('cloaking').checked) {
-                localStorage.setItem('cloaking', 'true');
-                console.log('clk true ls')
-            } 
-            if (localStorage.getItem('cloaking') === 'true') {
-                document.getElementById('cloaking').checked = true;
-                console.log('clk true ls')
-            }
             if (localStorage.getItem('cloaking') === 'false') {
                 document.getElementById('cloaking').checked = false;
             }
-            if (!document.getElementById('cloaking').checked) {
+            if (localStorage.getItem('cloaking') === 'true') {
+                document.getElementById('cloaking').checked = true;
+                console.log('clk true ls')
+            } 
+            function clktogg_localstorage() {
+                if (document.getElementById('cloaking').checked) {
+                localStorage.setItem('cloaking', 'true');
+                console.log('clk true ls')
+            } else if (document.getElementById('cloaking').checked === false) {
                 localStorage.setItem('cloaking', 'false');
+            }   
             }
             document.addEventListener('DOMContentLoaded', function () {
                 // subtitle
