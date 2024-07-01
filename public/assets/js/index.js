@@ -15,6 +15,10 @@ const blocked = [
   "test"
 ]
 
+const Point = [
+    "point://dino",
+]
+
 async function registerSW() {
     let wispUrl = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/wisp/";
     await BareMux.SetTransport("EpxMod.EpoxyClient", { wisp: wispUrl });
@@ -51,6 +55,15 @@ function containsBlockedKeyword(input, blockedList) {
     return false;
 }
 
+function containsPointKeyword(input, PointList) {
+    for (let i = 0; i < PointList.length; i++) {
+        if (input.includes(PointList[i])) {
+            return true;
+        }
+    }
+    return false;
+}
+
 form.addEventListener('submit', async (event) => {
     event.preventDefault();
 
@@ -64,6 +77,10 @@ form.addEventListener('submit', async (event) => {
     if (containsBlockedKeyword(address.value, blocked)) {
         // Redirect to blockpage
         location.replace('/blocked.html')
+    }
+    if (containsPointKeyword(address.value, Point)) {
+        // Redirect to blockpage
+        location.replace('/dino.html')
     }
     else {
         const url = search(address.value, "https://www.google.com/search?q=%s");

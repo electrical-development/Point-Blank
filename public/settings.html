@@ -16,6 +16,8 @@
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
     <link rel="stylesheet" href="/assets/css/styles.css">
     <script src="https://kit.fontawesome.com/fcaf79e23b.js" crossorigin="anonymous"></script>
+    <script src="./assets/js/settings.js"></script>
+    <script src="./assets/js/onload.js"></script>
     <style>
         * {
             background-color: #13171f;
@@ -172,6 +174,13 @@
             <div class="settings-card">
                     <input type="checkbox" id="cloaking" onchange="clktogg_localstorage()">Toggle Cloaking</input>
                     <span class="slider round"></span>
+            </div>
+            <div class="settings-card">
+                <input type="checkbox" id="clickoff" onchange="clickoff()">Toggle Clickoff Cloaking</input>
+                <span class="slider round"></span>
+            </div>
+            <div class="settings-card">
+                <input type="dropdown" id="engine" >Search Engine</input>
             </div>
         </div>
     </div>
