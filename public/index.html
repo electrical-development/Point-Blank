@@ -179,9 +179,9 @@
                     <input class="input" id="uv-address" placeholder="Enter a URL or Search"
                     style="background-color : #1C212C; color: white;" value="https://www.google.com/search?q=" />
                         <div class="dick">
-                            <button data-search-engine="google">Google</button>
-                            <button data-search-engine="bing">Bing</button>
-                            <button data-search-engine="duckduckgo">DuckDuckGo</button>
+                            <button data-search-engine="google" id="google-button">Google</button>
+                            <button data-search-engine="bing" id="bing-button">Bing</button>
+                            <button data-search-engine="duckduckgo" id="duckduckgo-button">DuckDuckGo</button>
                     </div>
                     <div class="desc left-margin">
                         <p id="uv-error"></p>
@@ -284,7 +284,21 @@
                     }
                 });
 
+            // yes i will act like chat gpt now
+            // Switch uv search engine
                 document.querySelector('svg').addEventListener('click', toggleSidebar);
+            });
+            // Google switch
+                document.getElementById('google-button').addEventListener('click', function() {
+                document.getElementById('uv-address').value = 'https://www.google.com/search?q=';
+            });
+            // Bing Swrich
+                document.getElementById('bing-button').addEventListener('click', function() {
+                document.getElementById('uv-address').value = 'https://www.bing.com/search?q=';
+            });
+            // Duckduckho Switch
+                document.getElementById('duckduckgo-button').addEventListener('click', function() {
+                document.getElementById('uv-address').value = 'https://duckduckgo.com/?q=';
             });
 
             async function loadAndRunWasmModule() {
@@ -301,26 +315,7 @@
                 }
             }
 
-            loadAndRunWasmModule();
-
-            function setSearchEngine(searchEngine) {
-                var query = document.getElementById('uv-address').value;
-                var baseUrl = "https://www.";
-                switch (searchEngine) {
-                    case 'google':
-                        document.getElementById('uv-address').value = `${baseUrl}${query}google.com/search?q=`;
-                        break;
-                    case 'bing':
-                        document.getElementById('uv-address').value = `${baseUrl}${query}bing.com/search?q=`;
-                        break;
-                    case 'duckduckgo':
-                        document.getElementById('uv-address').value = `${baseUrl}${query}duckduckgo.com/?q=`;
-            }
-        }
-        
-        setSearchEngine('google');
-
-
+            loadAndRunWasmModule();            
 
         </script>
         <script src="/baremux/bare.cjs"></script>
