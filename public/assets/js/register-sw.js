@@ -1,4 +1,4 @@
-const BARE_SERVER = "https://tomp.app"
+const BARE_SERVER = "/bare/"
 
    if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/uv/uv.sw.js').then(function(registration) {
