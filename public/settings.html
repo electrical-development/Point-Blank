@@ -18,6 +18,7 @@
     <script src="https://kit.fontawesome.com/fcaf79e23b.js" crossorigin="anonymous"></script>
     <script src="./assets/js/settings.js"></script>
     <script src="./assets/js/onload.js"></script>
+    <script src="./assets/js/abc.js"></script>
     <style>
         * {
             background-color: #13171f;
@@ -131,35 +132,6 @@
             text-decoration: none;
             border-radius: 4px;
         }
-
-        .sidebar a:hover i {
-            color: #ddd;
-            background-color: #005f73;
-        }
-        .settings-container {
-            margin-left: 30%;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-        .settings-card {
-            background-color: #2a3344;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 400px;
-            transition: all 0.3s ease;
-        }
-        .settings-btn {
-            background-color: #2a3344;
-            color: white;
-            border: 3px solid #43516c;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            
-            transition: background-color 0.3s ease;
-        }
     </style>
 </head>
 
@@ -169,23 +141,10 @@
             style="cursor: pointer; color: white; padding: 10px;">
             <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0z" />
         </svg>
-
-        <div class="settings-container">
-            <div class="settings-card">
-                    <input type="checkbox" id="cloaking" onchange="clktogg_localstorage()">Toggle Cloaking</input>
-                    <span class="slider round"></span>
-            </div>
-            <div class="settings-card">
-                <input type="checkbox" id="clickoff" onchange="clickoff()">Toggle Clickoff Cloaking</input>
-                <span class="slider round"></span>
-            </div>
-            <div class="settings-card">
-                <input type="dropdown" id="engine" >Search Engine</input>
-            </div>
         </div>
-    </div>
-    </form>
-    </center>
+
+    <input type="checkbox" id="autoCloakCheckbox" onclick="toggleAutoCloak()">
+    <label for="autoCloakCheckbox">About:Blank Cloaking</label>
     <div id="sidebar" class="sidebar">
         <div class="please-tell-me-how-to-use-pico-css">
             <h3>Menu</h3>
@@ -207,37 +166,7 @@
             </a>
         </div>
         <script>
-            if (localStorage.getItem('cloaking') === 'false') {
-                document.getElementById('cloaking').checked = false;
-            }
-            if (localStorage.getItem('cloaking') === 'true') {
-                document.getElementById('cloaking').checked = true;
-            } 
-            function clktogg_localstorage() {
-                if (document.getElementById('cloaking').checked) {
-                localStorage.setItem('cloaking', 'true');
-            } else if (document.getElementById('cloaking').checked === false) {
-                localStorage.setItem('cloaking', 'false');
-            }   
-            }
             document.addEventListener('DOMContentLoaded', function () {
-                // subtitle
-
-                var tell = [
-                    "dingus is the best :3",
-                    "Case Closed, Gang.",
-                    "Proxathon You Say?",
-                    "yes play451 is still better",
-                    "vote for us in the proxathon for a free cookie",
-                    "i hate school",
-                    "How tf does this even work?",
-                    "No crypto miners here!",
-                    "yea ima add a xmr miner",
-                    "can we get one of these messages on 2b2t motd"
-                ];
-
-                var howmany = tell.length;
-                var randomIndex = Math.floor(Math.random() * howmany);
                 // sidebar thing
                 function toggleSidebar() {
                     var sidebar = document.getElementById('sidebar');
