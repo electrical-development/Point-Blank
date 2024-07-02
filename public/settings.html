@@ -18,7 +18,7 @@
     <script src="https://kit.fontawesome.com/fcaf79e23b.js" crossorigin="anonymous"></script>
     <script src="./assets/js/settings.js"></script>
     <script src="./assets/js/onload.js"></script>
-    <script src="./assets/js/abc.js"></script>
+    <script src="abc.js"></script>
     <style>
         * {
             background-color: #13171f;
@@ -207,6 +207,13 @@
 
                 document.querySelector('svg').addEventListener('click', toggleSidebar);
             });
+
+            document.addEventListener('DOMContentLoaded', function() {
+                var autoCloakCheckbox = document.getElementById('autoCloakCheckbox');
+                autoCloakCheckbox.addEventListener('change', function() {
+                localStorage.setItem('autoCloakEnabled', this.checked? 'true' : 'false');
+            });
+        });
                     </script>
 </body>
 </html>
