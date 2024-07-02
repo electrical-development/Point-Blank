@@ -18,6 +18,12 @@ function toggleAutoCloak() {
     }
 }
 
+if (localStorage.getItem('autoCloakEnabled') === 'true') {
+    console.log('Auto cloaking is enabled');
+} else {
+    console.log('Auto cloaking is disabled');
+}
+
 window.onload = function() {
     var autoCloakCheckbox = document.getElementById("autoCloakCheckbox");
     var savedState = localStorage.getItem('autoCloakChecked');
