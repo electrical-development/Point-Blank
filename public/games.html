@@ -1,51 +1,64 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Point Blank</title>
     <meta property="og:title" content="Point Blank">
-    <meta property="og:description" content="A proxy for the Titanium Network 2024 proxathon vote for it please">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.zinc.min.css"/>
-    <link rel="stylesheet" href="./assets/css/index.css">
+    <meta property="og:description" name="description"
+        content="A proxy for the Titanium Network 2024 proxathon vote for it please">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.zinc.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+    <link rel="stylesheet" href="/assets/css/styles.css">
     <script src="https://kit.fontawesome.com/fcaf79e23b.js" crossorigin="anonymous"></script>
     <script src="./assets/js/settings.js"></script>
     <script src="./assets/js/onload.js"></script>
-    <!--Ultraviolet-->
-    <script src="/uv/uv.bundle.js"></script>
-    <script src="/uv/uv.config.js"></script>
     <style>
+        * {
+            background-color: #13171f;
+
+        }
+
         body {
             padding: 0px;
             margin: 0;
+            background-color: #13171f;
         }
+
         .bebas-neue-regular {
             font-family: "Roboto", sans-serif;
             font-weight: 400;
             font-style: normal;
         }
-        .gay {
+
+        #uv-address {
             display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 1000px;
+        }
+
+        .settings {
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
-            margin-top: 150px; 
+            margin-left: 30%;
         }
 
         .sidebar {
             position: fixed;
             top: 0;
-            left: -250px; 
+            left: -250px;
             width: 250px;
             height: 100%;
             overflow-x: hidden;
             transition: 0.5s;
             z-index: 1;
-            background-color: #000d1a;
+            background-color: #13171f;
         }
 
         .sidebar.active {
@@ -54,15 +67,16 @@
 
         .sidebar a {
             display: block;
-            color: #ffffff; 
+            color: #ffffff;
             text-decoration: none;
             padding: 10px 15px;
             border-bottom: 1px solid #444;
         }
 
         .sidebar a:hover {
-            background-color: #222; 
+            background-color: #005f73;
             color: #ddd;
+            transform: translateY(-2px);
         }
 
         #close-sidebar-btn {
@@ -73,6 +87,12 @@
             background: transparent;
             border: none;
             cursor: pointer;
+            border-radius: 50%;
+            padding: 8px;
+        }
+
+        #close-sidebar-btn:hover {
+            color: white;
         }
 
         #i-hate-life {
@@ -93,109 +113,99 @@
 
         #main-content {
             position: relative;
+            background-color: black;
         }
 
-        .gamecontainer {
-            color: white;
-            border-radius:10px;
-            background-color: #2a3345;
-            width: 15%;
-            height: 10%;
-            padding: 10px;
-    }
+        .please-check-these-out {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: black;
+        }
 
-        .game-layout {
+        .git2 {
             display: inline-block;
+            padding: 12px 24px;
+            background-color: #13171f;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
         }
-
-        .gameicon {
-                border: none;
-                background: none;
-                padding: 0;
-                cursor: pointer;
-                display: block;
-                width: 100%;
-                height: 100%; 
-        }
-        
-    </style> 
+    </style>
 </head>
+
 <body>
-    <div id="main-content">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="40px" height="40px" style="cursor: pointer; color: white; padding: 10px;">
-        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0z"/>
-    </svg>
+    <div id="main-content" style="background-color: #13171f;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="40px" height="40px"
+            style="cursor: pointer; color: white; padding: 10px;">
+            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0z" />
+        </svg>
+        </div>
+    </div>
+    </form>
+    </center>
+    <div id="sidebar" class="sidebar">
+        <div class="please-tell-me-how-to-use-pico-css">
+            <h3>Menu</h3>
+        </div>
+        <button id="close-sidebar-btn">&times;</button>
+        <div id="i-hate-life">
+            <a href="/index.html" ><i class="fas fa-globe" style="padding: 4px"></i>  Proxy</a>
+            <a href="/games.html"><i class="fa-solid fa-gamepad"  style="padding: 4px"></i>  Games</a>
+            <a href="/apps.html"><i class="fa-solid fa-phone"  style="padding: 4px"></i>  Apps</a>
+            <a href="/settings.html"><i class="fa-solid fa-gear"  style="padding: 4px"></i>  Settings</a>
 
-    <div class="gay">
-        
-        <center>
-            <h1 style="color: white;" class="bebas-neue-regular">Games</h1>
-            <!--what is life with no :3-->
-            <!--Also happy femboy fridau :3-->
-            <div class="game-layout">
-                <div class="gamecontainer"> 
-                    <button class="gameicon" onclick="location.href = '/service/point-blank/hvtrs8%2F-nmbmd%7Bccrgs%2Ciq-tepy%2Fgcy%2Cuq.ig-sahmon%2Feao%2Frhkskbmx-ildgx%2Chvm' "><img src="./assets/images/physibox.png"></button>
-                        <p>Physibox</p>
-            </div>
-            </div>
-            </center>
-            </div>
-            </center>
-            </div>
-
-            <div id="sidebar" class="sidebar">
-                <div class="please-tell-me-how-to-use-pico-css">
-                 <h3>Menu</h3>
-                </div>
-                 <button id="close-sidebar-btn">&times;</button>
-                 <div id="i-hate-life">
-                         <a href="/settings.html"><i class="fa-solid fa-gear"></i> Settings</a>
-                         <a href="/games.html"><i class="fa-solid fa-gamepad"></i> Games</a>
-                         <a href="/apps.html"><i class="fa-solid fa-phone"></i> Apps</a>
-     
-             </div>
-            <!--we back :D-->
-            <script>
-                //sidebar
-                        // sidebar thing
-        function toggleSidebar() {
-            var sidebar = document.getElementById('sidebar');
-            var mainContent = document.getElementById('main-content');
-            if (sidebar.style.left === "-250px") {
-                sidebar.style.left = "0";
-                sidebar.classList.add('active');
-                document.getElementById('main-content').classList.add('blur-background');
-            } else {
-                sidebar.style.left = "-250px";
-                sidebar.classList.remove('active');
-                document.getElementById('main-content').classList.remove('blur-background');
-            }
-        }
-
-      const closeButton = document.getElementById('close-sidebar-btn');
-            closeButton.addEventListener('click', function() {
-            const sidebar = document.getElementById('sidebar');
-        if (sidebar.classList.contains('active')) {
-            sidebar.style.left = '-250px';
-            sidebar.classList.remove('active');
-            document.getElementById('main-content').classList.remove('blur-background');
-         }
-    });
-
-        document.addEventListener('mousedown', function(event) {
-            const sidebar = document.getElementById('sidebar');
-            const closeButton = document.getElementById('close-sidebar-btn');
-
-            if (!sidebar.contains(event.target) &&!closeButton.contains(event.target)) {
-                if (sidebar.classList.contains('active')) {
-                    sidebar.style.left = '-250px';
-                    sidebar.classList.remove('active');
-                    document.getElementById('main-content').classList.remove('blur-background');
+        </div>
+        <div class="please-check-these-out">
+            <a href="https://dsc.gg/electrical-proxy" target="_blank" class="git2">
+                <i class="fab fa-discord"></i>
+            </a>
+            <a href="https://github.com/electrical-development/Point-Blank" target="_blank" class="git2">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // sidebar thing
+                function toggleSidebar() {
+                    var sidebar = document.getElementById('sidebar');
+                    var mainContent = document.getElementById('main-content');
+                    if (sidebar.style.left === "-250px") {
+                        sidebar.style.left = "0";
+                        sidebar.classList.add('active');
+                        document.getElementById('main-content').classList.add('blur-background');
+                    } else {
+                        sidebar.style.left = "-250px";
+                        sidebar.classList.remove('active');
+                        document.getElementById('main-content').classList.remove('blur-background');
+                    }
                 }
-            }
-        });
 
-    document.querySelector('svg').addEventListener('click', toggleSidebar);
+                const closeButton = document.getElementById('close-sidebar-btn');
+                closeButton.addEventListener('click', function () {
+                    const sidebar = document.getElementById('sidebar');
+                    if (sidebar.classList.contains('active')) {
+                        sidebar.style.left = '-250px';
+                        sidebar.classList.remove('active');
+                        document.getElementById('main-content').classList.remove('blur-background');
+                    }
+                });
 
-            </script>
+                document.addEventListener('mousedown', function (event) {
+                    const sidebar = document.getElementById('sidebar');
+                    const closeButton = document.getElementById('close-sidebar-btn');
 
+                    if (!sidebar.contains(event.target) && !closeButton.contains(event.target)) {
+                        if (sidebar.classList.contains('active')) {
+                            sidebar.style.left = '-250px';
+                            sidebar.classList.remove('active');
+                            document.getElementById('main-content').classList.remove('blur-background');
+                        }
+                    }
+                });
+
+                document.querySelector('svg').addEventListener('click', toggleSidebar);
+            });
+                    </script>
+</body>
+</html>
