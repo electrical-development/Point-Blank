@@ -147,16 +147,19 @@
 
             
             document.getElementById('google-button').addEventListener('click', function() {
+                event.preventDefault();
                 currentSearchEngine = 'google';
                 document.getElementById('uv-address').value = `${currentSearchEngine}/search?q=`;
             });
 
             document.getElementById('bing-button').addEventListener('click', function() {
+                event.preventDefault();
                 currentSearchEngine = 'bing';
                 document.getElementById('uv-address').value = `${currentSearchEngine}/search?q=`;
             });
 
             document.getElementById('duckduckgo-button').addEventListener('click', function() {
+                event.preventDefault();
                 currentSearchEngine = 'duckduckgo';
                 document.getElementById('uv-address').value = `${currentSearchEngine}?q=`;
             });
