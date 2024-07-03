@@ -143,30 +143,29 @@
 
             let currentSearchEngine = 'google';
 
-            document.getElementById('uv-address').value = `${currentSearchEngine}/search?q=`;
+            const defaultQuery = '';
+            document.getElementById('uv-address').value = `${currentSearchEngine}/search?q=${encodeURIComponent(defaultQuery)}`;
 
             
-            document.getElementById('google-button').addEventListener('click', function() {
+            document.getElementById('google-button').addEventListener('click', function(event) {
                 event.preventDefault();
                 currentSearchEngine = 'google';
-                document.getElementById('uv-address').value = `${currentSearchEngine}/search?q=`;
+                const query = document.getElementById('uv-address').value.split('=')[1]; 
+                document.getElementById('uv-address').value = `${currentSearchEngine}/search?q=${encodeURIComponent(query)}`;
             });
 
-            document.getElementById('bing-button').addEventListener('click', function() {
+            document.getElementById('bing-button').addEventListener('click', function(event) {
                 event.preventDefault();
-                const userInput = document.getElementById('uv-address').value.trim();
-                if (userInput) {
-                    const bingUrl = `https://www.bing.com/search?q=${encodeURIComponent(userInput)}`;
-                    document.getElementById('uv-address').value = bingUrl;
-                    }
+                currentSearchEngine = 'bing';
+                const query = document.getElementById('uv-address').value.split('=')[1];
+                document.getElementById('uv-address').value = `https://www.bing.com/search?q=${encodeURIComponent(query)}`;
             });
 
-            document.getElementById('duckduckgo-button').addEventListener('click', function() {
+            document.getElementById('duckduckgo-button').addEventListener('click', function(event) {
                 event.preventDefault();
-                const userInput = document.getElementById('uv-address').value.trim();
-                if (userInput) {
-                    const duckduckgoUrl = `https://duckduckgo.com/?t=h_&q=${encodeURIComponent(userInput)}`;
-                    document.getElementById('uv-address').value = duckduckgoUrl;
+                currentSearchEngine = 'duckduckgo';
+                const query = document.getElementById('uv-address').value.split('=')[1];
+                document.getElementById('uv-address').value = `https://duckduckgo.com/?t=h_&q=${encodeURIComponent(query)}`;
             });
 
             async function loadAndRunWasmModule() {
