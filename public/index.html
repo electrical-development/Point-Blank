@@ -154,14 +154,19 @@
 
             document.getElementById('bing-button').addEventListener('click', function() {
                 event.preventDefault();
-                currentSearchEngine = 'bing';
-                document.getElementById('uv-address').value = `${currentSearchEngine}/search?q=`;
+                const userInput = document.getElementById('uv-address').value.trim();
+                if (userInput) {
+                    const bingUrl = `https://www.bing.com/search?q=${encodeURIComponent(userInput)}`;
+                    document.getElementById('uv-address').value = bingUrl;
+                    }
             });
 
             document.getElementById('duckduckgo-button').addEventListener('click', function() {
                 event.preventDefault();
-                currentSearchEngine = 'duckduckgo';
-                document.getElementById('uv-address').value = `${currentSearchEngine}?q=`;
+                const userInput = document.getElementById('uv-address').value.trim();
+                if (userInput) {
+                    const duckduckgoUrl = `https://duckduckgo.com/?t=h_&q=${encodeURIComponent(userInput)}`;
+                    document.getElementById('uv-address').value = duckduckgoUrl;
             });
 
             async function loadAndRunWasmModule() {
