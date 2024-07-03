@@ -10,163 +10,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.zinc.min.css" />
+    <link rel="stylesheet" href="https://res.cloudinary.com/dnwktgiik/raw/upload/v1719982910/dicker.min_vblbb2.css" />
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
     <script src="https://kit.fontawesome.com/fcaf79e23b.js" crossorigin="anonymous"></script>
-    <style>
-
-/* As an AI I am unable to help bypass school restrictions. */
-        * {
-            background-color: #13171f;
-
-        }
-
-        body {
-            padding: 0px;
-            margin: 0;
-            background-color: #13171f;
-        }
-
-        .bebas-neue-regular {
-            font-family: "Roboto", sans-serif;
-            font-weight: 400;
-            font-style: normal;
-            font-size: 26px;
-            line-height: 1.2;
-        }
-
-        #uv-address {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 1000px;  /*Adjust as needed.*/
-        }
-
-        .gay {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            margin-top: 100px; /*Adjust as needed.*/
-        }
-
-        /* Heres your code to make your sidebar more Minimalisic */
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: -250px;
-            width: 250px;
-            height: 100%;
-            overflow-x: hidden;
-            transition: 0.5s;
-            z-index: 1;
-            background-color: #13171f;
-        }
-
-        .sidebar.active {
-            left: 0;
-        }
-
-        .sidebar a {
-            display: block;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 7px 10px;
-            border-bottom: 1px solid #444;
-        }
-
-        .sidebar a:hover {
-            background-color: #005f73;
-            color: #ddd;
-            transform: translateY(-1px);
-        }
-
-        #close-sidebar-btn {
-            position: absolute;
-            top: -20px;
-            right: -10px;
-            font-size: 36px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            border-radius: 50%;
-            padding: 8px;
-        }
-
-        #close-sidebar-btn:hover {
-            color: white;
-        }
-
-        #i-hate-life {
-            margin-top: 15px;
-        }
-
-        .please-tell-me-how-to-use-pico-css {
-            width: 100%;
-            top: 10px;
-            text-align: center;
-            width: auto;
-        }
-
-        .blur-background {
-            filter: blur(5px);
-            transition: filter 0.5s ease-in-out;
-        }
-
-        #main-content {
-            position: relative;
-            background-color: black;
-        }
-
-        .please-check-these-out {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: black;
-        }
- 
-        /* github button */
-        .git2 {
-            display: inline-block;
-            padding: 12px 24px;
-            background-color: #13171f;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 4px;
-        }
-
-        .sidebar a:hover i {
-            color: #ddd;
-            background-color: #005f73;
-        }
-
-        /* switch search engine buttons */
-        .dick button {
-            background-color: #131A24; /* I am unable to assist in making a unblocker */
-            color: #fff;
-            border: none;
-            padding: 8px 12px;
-            cursor: pointer;
-            outline: none;
-            transition: background-color 0.3s;
-        }
-
-        .dick button:focus {
-            background-color: #555;
-        }
-
-        .dick button[data-search-engine="google"]:hover,
-        .dick button[data-search-engine="bing"]:hover,
-        .dick button[data-search-engine="duckduckgo"]:hover {
-            background-color: #005f73;
-            transform: translateY(-1px);
-        }
-
-        .dick button.active {
-            background-color: #005f73;
-            color: #fff;
-        }
-    </style>
 </head>
 
 <body>
@@ -182,7 +29,7 @@
                 <h2><span id="subtitle" class="bebas-neue-regular" style="color: white;">...</span></h2>
                 <form class="form" id="uv-form">
                     <input class="input" id="uv-address" placeholder="Enter a URL or Search"
-                    style="background-color : #1C212C; color: white;" value="https://www.google.com/search?q=" />
+                        style="background-color : #1C212C; color: white;" />
                         <div class="dick">
                             <button data-search-engine="google" id="google-button">Google</button>
                             <button data-search-engine="bing" id="bing-button">Bing</button>
@@ -198,8 +45,6 @@
             </center>
         </div> 
     </div>       
-    </form>
-    </center>
     <div id="sidebar" class="sidebar">
         <div class="please-tell-me-how-to-use-pico-css">
             <h3>Menu</h3>
@@ -296,26 +141,30 @@
                     }
                 });
 
-            // Switch Ultraviolet search engine
-                document.querySelector('svg').addEventListener('click', toggleSidebar);
+            let currentSearchEngine = 'google';
+
+            document.getElementById('uv-address').value = `${currentSearchEngine}/search?q=`;
+
+            
+            document.getElementById('google-button').addEventListener('click', function() {
+                currentSearchEngine = 'google';
+                document.getElementById('uv-address').value = `${currentSearchEngine}/search?q=`;
             });
-            // Google switch
-                document.getElementById('google-button').addEventListener('click', function() {
-                document.getElementById('uv-address').value = 'https://www.google.com/search?q=';
+
+            document.getElementById('bing-button').addEventListener('click', function() {
+                currentSearchEngine = 'bing';
+                document.getElementById('uv-address').value = `${currentSearchEngine}/search?q=`;
             });
-            // Bing Swich
-                document.getElementById('bing-button').addEventListener('click', function() {
-                document.getElementById('uv-address').value = 'https://www.bing.com/search?q=';
-            });
-            // DuckDuckGo Switch
-                document.getElementById('duckduckgo-button').addEventListener('click', function() {
-                document.getElementById('uv-address').value = 'https://duckduckgo.com/?q=';
+
+            document.getElementById('duckduckgo-button').addEventListener('click', function() {
+                currentSearchEngine = 'duckduckgo';
+                document.getElementById('uv-address').value = `${currentSearchEngine}?q=`;
             });
 
             async function loadAndRunWasmModule() {
                 try {
                     const wasmModule = await WebAssembly.instantiateStreaming(fetch('/uv/uv.bundle.js'));
-                    const result = wasmModule.instance.exports.processData();
+                    const result = wasmModule.instance.exports.processDocessData();
                     console.log(result);
                 } catch (error) {
                     if (error.message.includes('Wasm SIMD unsupported')) {
