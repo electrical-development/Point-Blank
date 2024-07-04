@@ -2,16 +2,15 @@ import express from "express";
 import { createServer } from "node:http";
 import { uvPath } from "@titaniumnetwork-dev/ultraviolet";
 import { epoxyPath } from "@mercuryworkshop/epoxy-transport";
-import { baremuxPath } from "@mercuryworkshop/bare-mux";
-import { hostname } from "node:os";
+import { baremuxPath } from "@mercuryworkshop/bare-mux/node";
 import { createBareServer } from '@tomphttp/bare-server-node';
 import wisp from "wisp-server-node";
-
 
 const app = express();
 // Load our publicPath first and prioritize it over UV.
 app.use(express.static("public"));
 const bare = createBareServer("/bare/");
+
 // Load vendor files last.
 // The vendor's uv.config.js won't conflict with our uv.config.js inside the publicPath directory.
 app.use("/uv/", express.static(uvPath));
@@ -49,7 +48,6 @@ server.on("listening", () => {
   // we just need to list a few
   console.log("Listening on:");
   console.log(`\thttp://localhost:${address.port}`);
-  console.log(`\thttp://${hostname()}:${address.port}`);
   console.log(
     `\thttp://${address.family === "IPv6" ? `[${address.address}]` : address.address
     }:${address.port}`
