@@ -71,12 +71,19 @@
             text-decoration: none;
             padding: 10px 15px;
             border-bottom: 1px solid #444;
+            background-color: #13171f; 
+            transition: background-color 0.3s ease;
         }
-
         .sidebar a:hover {
             background-color: #005f73;
             color: #ddd;
             transform: translateY(-2px);
+        }
+
+        .sidebar a:hover, .sidebar a:hover i {
+            color: #ddd;
+            background-color: #005f73;
+            transition: background-color 0.3s ease;
         }
 
         #close-sidebar-btn {
