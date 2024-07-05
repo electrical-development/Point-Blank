@@ -104,8 +104,8 @@
                 return sub;
             }
         });
-            // Sidebar
-            function toggleSidebar() {
+                // sidebar thing
+                function toggleSidebar() {
                     var sidebar = document.getElementById('sidebar');
                     var mainContent = document.getElementById('main-content');
                     if (sidebar.style.left === "-250px") {
@@ -142,6 +142,8 @@
                     }
                 });
 
+                document.querySelector('svg').addEventListener('click', toggleSidebar);
+            });
 
             loadAndRunWasmModule();                       
         </script>
