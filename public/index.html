@@ -93,57 +93,62 @@
                 "doc, i heard you like em young"
             ];
 
-            var howmany = tell.length;
-            var randomIndex = Math.floor(Math.random() * howmany);
+            function changeSub(num) {
+                document.getElementById("subtitle").innerText = tell[num];
+            }
 
-            document.getElementById("subtitle").innerText = tell[randomIndex];
+            document.addEventListener('DOMContentLoaded', function () {
+                var howmany = tell.length;
+                var randomIndex = Math.floor(Math.random() * howmany);
+
+                document.getElementById("subtitle").innerText = tell[randomIndex];
 
             function changeSplash(num) {
                 var sub = "Set current splash to splash " + num + ", " + tell[num];
                 document.getElementById("subtitle").innerText = tell[num];
                 return sub;
             }
-        });
-                // sidebar thing
-                function toggleSidebar() {
-                    var sidebar = document.getElementById('sidebar');
-                    var mainContent = document.getElementById('main-content');
-                    if (sidebar.style.left === "-250px") {
-                        sidebar.style.left = "0";
-                        sidebar.classList.add('active');
-                        document.getElementById('main-content').classList.add('blur-background');
-                    } else {
-                        sidebar.style.left = "-250px";
-                        sidebar.classList.remove('active');
-                        document.getElementById('main-content').classList.remove('blur-background');
-                    }
-                }
 
+                // sidebar thing
+            function toggleSidebar() {
+                var sidebar = document.getElementById('sidebar');
+                var mainContent = document.getElementById('main-content');
+                if (sidebar.style.left === "-250px") {
+                    sidebar.style.left = "0";
+                    sidebar.classList.add('active');
+                    document.getElementById('main-content').classList.add('blur-background');
+                } else {
+                    sidebar.style.left = "-250px";
+                    sidebar.classList.remove('active');
+                    document.getElementById('main-content').classList.remove('blur-background');
+                }
+            }
+
+            const closeButton = document.getElementById('close-sidebar-btn');
+            closeButton.addEventListener('click', function () {
+                const sidebar = document.getElementById('sidebar');
+                if (sidebar.classList.contains('active')) {
+                    sidebar.style.left = '-250px';
+                    sidebar.classList.remove('active');
+                    document.getElementById('main-content').classList.remove('blur-background');
+                }
+            });
+
+            document.addEventListener('mousedown', function (event) {
+                const sidebar = document.getElementById('sidebar');
                 const closeButton = document.getElementById('close-sidebar-btn');
-                closeButton.addEventListener('click', function () {
-                    const sidebar = document.getElementById('sidebar');
+
+                if (!sidebar.contains(event.target) && !closeButton.contains(event.target)) {
                     if (sidebar.classList.contains('active')) {
                         sidebar.style.left = '-250px';
                         sidebar.classList.remove('active');
                         document.getElementById('main-content').classList.remove('blur-background');
                     }
-                });
-
-                document.addEventListener('mousedown', function (event) {
-                    const sidebar = document.getElementById('sidebar');
-                    const closeButton = document.getElementById('close-sidebar-btn');
-
-                    if (!sidebar.contains(event.target) && !closeButton.contains(event.target)) {
-                        if (sidebar.classList.contains('active')) {
-                            sidebar.style.left = '-250px';
-                            sidebar.classList.remove('active');
-                            document.getElementById('main-content').classList.remove('blur-background');
-                        }
-                    }
-                });
-
-                document.querySelector('svg').addEventListener('click', toggleSidebar);
+                }
             });
+
+            document.querySelector('svg').addEventListener('click', toggleSidebar);
+        });
 
             loadAndRunWasmModule();                       
         </script>
