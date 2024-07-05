@@ -93,11 +93,6 @@
                 "doc, i heard you like em young"
             ];
 
-            function changeSub(num) {
-                document.getElementById("subtitle").innerText = tell[num];
-            }
-
-            document.addEventListener('DOMContentLoaded', function () {
                 var howmany = tell.length;
                 var randomIndex = Math.floor(Math.random() * howmany);
 
@@ -125,14 +120,14 @@
             }
 
             const closeButton = document.getElementById('close-sidebar-btn');
-            closeButton.addEventListener('click', function () {
-                const sidebar = document.getElementById('sidebar');
-                if (sidebar.classList.contains('active')) {
-                    sidebar.style.left = '-250px';
-                    sidebar.classList.remove('active');
-                    document.getElementById('main-content').classList.remove('blur-background');
-                }
-            });
+                closeButton.addEventListener('click', function () {
+                    const sidebar = document.getElementById('sidebar');
+                    if (sidebar.classList.contains('active')) {
+                        sidebar.style.left = '-250px';
+                        sidebar.classList.remove('active');
+                        document.getElementById('main-content').classList.remove('blur-background');
+                    }
+                });
 
             document.addEventListener('mousedown', function (event) {
                 const sidebar = document.getElementById('sidebar');
@@ -148,9 +143,9 @@
             });
 
             document.querySelector('svg').addEventListener('click', toggleSidebar);
-        });
 
-            loadAndRunWasmModule();                       
+            loadAndRunWasmModule();   
+        });
         </script>
         <script src="/baremux/bare.cjs"></script>
         <script src="/epoxy/index.js"></script>
