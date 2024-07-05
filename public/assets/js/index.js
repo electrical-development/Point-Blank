@@ -3,17 +3,6 @@ const address = document.getElementById("uv-address");
 const error = document.getElementById("uv-error");
 const errorCode = document.getElementById("uv-error-code");
 
-const blocked = [
-    //Set the Blocked Keywords
-  "porn",
-  "sex",
-  "xxx",
-  "hentai",
-  "pornhub.com",
-  "xxx.com",
-  "4chan.org",
-  "test"
-]
 
 const Point = [
     "point://dino",
@@ -46,15 +35,6 @@ function search(input, template) {
     return template.replace("%s", encodeURIComponent(input));
 }
 
-function containsBlockedKeyword(input, blockedList) {
-    for (let i = 0; i < blockedList.length; i++) {
-        if (input.includes(blockedList[i])) {
-            return true;
-        }
-    }
-    return false;
-}
-
 function containsPointKeyword(input, PointList) {
     for (let i = 0; i < PointList.length; i++) {
         if (input.includes(PointList[i])) {
@@ -74,13 +54,8 @@ form.addEventListener('submit', async (event) => {
         errorCode.textContent = err.toString();
         throw err;
     }
-    if (containsBlockedKeyword(address.value, blocked)) {
-        // Redirect to blockpage
-        location.replace('/blocked.html')
-    }
     if (containsPointKeyword(address.value, Point)) {
-        // Redirect to blockpage
-        location.replace('/dino.html')
+        location.replace('/uv/pbSW/hvtrs8%2F-odfnile%2Fdknm-eaoe%2Cfkrgbcsgarp%2Ccmm')
     }
     else {
         const url = search(address.value, "https://www.google.com/search?q=%s");
