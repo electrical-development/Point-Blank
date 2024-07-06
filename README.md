@@ -6,6 +6,15 @@ A UV based proxy For TN 2024 Proxathon theme of minimalism. Made by the Electric
 also according to him we skidded
 # How to use
 
-We are still in development so please wait
+```git clone https://github.com/electrical-development/Point-Blank```
+
+
+```cd Point-Blank```
+
+
+```npm install```
+
+
+```npm run start```
 
 femboy friday
