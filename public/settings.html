@@ -213,21 +213,9 @@
             document.addEventListener('DOMContentLoaded', function() {
                 var autoCloakCheckbox = document.getElementById('autoCloakCheckbox');
                 autoCloakCheckbox.addEventListener('change', function() {
-                localStorage.setItem('autoCloakEnabled', this.checked? 'true' : 'false');
+                    localStorage.setItem('autoCloakEnabled', this.checked ? 'true' : 'false');
+                });
             });
-        });
-                    </script>
-                    <script>
-        function clickoff() {
-        switch(clickofff) {
-        case 'on':
-        localStorage.setItem('clickoff', 'off')
-        break;
-        case 'off':
-        localStorage.setItem('clickoff', 'on')
-        break;
-    }
-}
                     </script>
 </body>
 </html>
