@@ -150,7 +150,7 @@
 
             document.querySelector('svg').addEventListener('click', toggleSidebar);
 
-            var autoCloakState = localStorage.getItem('autoCloak') === 'true';
+            var autoCloakState = localStorage.getItem('autoCloakEnabled') === 'true';
                 if (autoCloakState) {
                 var frm = win.document.createElement("iframe");
                     frm.style.border = "none";
