@@ -94,7 +94,8 @@
                 "doc, i heard you like em young",
                 "kendrick won da beef",
                 "there",
-                "https://www.youtube.com/watch?v=GMgsFZ4rkEI"
+                "https://www.youtube.com/watch?v=GMgsFZ4rkEI",
+                "immortal 2 looses!"
             ];
 
                 var howmany = tell.length;
@@ -149,9 +150,23 @@
 
             document.querySelector('svg').addEventListener('click', toggleSidebar);
 
-            loadAndRunWasmModule();   
-        });;
-            loadAndRunWasmModule();                       
+            var autoCloakState = localStorage.getItem('autoCloak') === 'true';
+                if (autoCloakState) {
+                var frm = win.document.createElement("iframe");
+                    frm.style.border = "none";
+                    frm.style.width = "100%";
+                    frm.style.height = "100%";
+                    frm.style.margin = "0";
+                    frm.referrerpolicy = "no-referrer";
+                    frm.allow = "fullscreen";
+                    frm.src = "abc.html";
+                    win.document.body.appendChild(frm);
+                } else {
+                    console.log("Auto cloak is disabled.");
+            }
+
+    loadAndRunWasmModule();
+});                     
         </script>
         <script src="/baremux/bare.cjs"></script>
         <script src="/epoxy/index.js"></script>
