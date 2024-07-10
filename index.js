@@ -67,3 +67,11 @@ function shutdown() {
 server.listen({
   port,
 });
+
+app.use(function(err, req, res, next) {
+  if (err.status === 404) {
+    res.status(404).sendFile(path.join(__dirname, '/public/404.html'));
+  } else {
+    next(err);
+  }
+});
