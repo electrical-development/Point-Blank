@@ -19,6 +19,11 @@ app.use("/baremux/", express.static(baremuxPath));
 
 const server = createServer();
 
+app.use((req, res) => {
+  res.status(404);
+  res.sendFile(join(publicPath, "404.html"));
+});
+
 server.on("request", (req, res) => {
   if (bare.shouldRoute(req)) {
     bare.routeRequest(req, res);
@@ -66,12 +71,4 @@ function shutdown() {
 
 server.listen({
   port,
-});
-
-app.use(function(err, req, res, next) {
-  if (err.status === 404) {
-    res.status(404).sendFile(path.join(__dirname, '/public/404.html'));
-  } else {
-    next(err);
-  }
 });
