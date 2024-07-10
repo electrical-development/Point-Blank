@@ -5,6 +5,7 @@ import { epoxyPath } from "@mercuryworkshop/epoxy-transport";
 import { baremuxPath } from "@mercuryworkshop/bare-mux/node";
 import { createBareServer } from '@tomphttp/bare-server-node';
 import wisp from "wisp-server-node";
+import path from 'path';
 
 const app = express();
 // Load our publicPath first and prioritize it over UV.
@@ -18,11 +19,6 @@ app.use("/epoxy/", express.static(epoxyPath));
 app.use("/baremux/", express.static(baremuxPath));
 
 const server = createServer();
-
-app.use((req, res) => {
-  res.status(404);
-  res.sendFile(join(publicPath, "404.html"));
-});
 
 server.on("request", (req, res) => {
   if (bare.shouldRoute(req)) {
@@ -71,4 +67,12 @@ function shutdown() {
 
 server.listen({
   port,
+});
+
+app.use(function(err, req, res, next) {
+  if (err.status === 404) {
+    res.status(404).sendFile(path.join(__dirname, '/public/404.html'));
+  } else {
+    next(err);
+  }
 });
