@@ -222,12 +222,14 @@
                 document.querySelector('svg').addEventListener('click', toggleSidebar);
             });
 
-            document.addEventListener('DOMContentLoaded', function() {
-                var autoCloakCheckbox = document.getElementById('autoCloakCheckbox');
-                autoCloakCheckbox.addEventListener('change', function() {
-                    localStorage.setItem('autoCloakEnabled', this.checked ? 'true' : 'false');
-                });
-            });
+            document.addEventListener('DOMContentLoaded', function () {
+    var autoCloakCheckbox = document.getElementById('autoCloakCheckbox');
+    autoCloakCheckbox.addEventListener('change', function () {
+        localStorage.setItem('autoCloak', this.checked ? 'true' : 'false');
+    });
+});
+
+
                     </script>
 </body>
 </html>
