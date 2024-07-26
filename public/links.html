@@ -19,6 +19,14 @@
     <script src="./assets/js/onload.js"></script>
     <script src="https://res.cloudinary.com/dnwktgiik/raw/upload/v1720138086/739nd7_bixonr.js"></script>
     <style>
+        .git2 {
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            padding: 10px !important;
+        }
+    </style>
+    <style>
         * {
             background-color: #13171f;
 
@@ -71,16 +79,18 @@
             text-decoration: none;
             padding: 10px 15px;
             border-bottom: 1px solid #444;
-            background-color: #13171f; 
+            background-color: #13171f;
             transition: background-color 0.3s ease;
         }
+
         .sidebar a:hover {
             background-color: #005f73;
             color: #ddd;
             transform: translateY(-2px);
         }
 
-        .sidebar a:hover, .sidebar a:hover i {
+        .sidebar a:hover,
+        .sidebar a:hover i {
             color: #ddd;
             background-color: #005f73;
             transition: background-color 0.3s ease;
@@ -136,7 +146,7 @@
 
         .some1-is-really-gay {
             background-color: #131722;
-            padding: 20px; 
+            padding: 20px;
             border-radius: 15px;
             height: 500px;
             width: 500px;
@@ -147,10 +157,10 @@
 
         .gay-sex {
             text-align: center;
-            color: #ffffff; 
+            color: #ffffff;
             font-family: 'Roboto', sans-serif;
             font-size: 34px;
-            margin: 0; 
+            margin: 0;
             padding: 10px;
             backround-color: #131722;
         }
@@ -159,8 +169,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px; 
-            margin-top: 20px; 
+            gap: 10px;
+            margin-top: 20px;
             border-radius: 2px;
             font-family: inherit;
         }
@@ -191,7 +201,7 @@
             height: 100%;
             margin: 2% auto;
             overflow: auto;
-            background-color: rgba(0,0,0,0.4);
+            background-color: rgba(0, 0, 0, 0.4);
         }
 
         .popup-content {
@@ -216,7 +226,7 @@
             font-size: 18px;
             padding: 5px 10px;
             border: none;
-            color: white; 
+            color: white;
             border-radius: 5px;
         }
 
@@ -228,19 +238,18 @@
             background-color: #171B1B;
             text-align: center;
             margin-top: 10px;
-        }  
+        }
 
         .close-button-container {
-         margin-top: 10px; 
-       }
+            margin-top: 10px;
+        }
 
         .some1-is-gay {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 500px; 
+            height: 500px;
         }
-        
     </style>
 </head>
 
@@ -251,37 +260,34 @@
             <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0z" />
         </svg>
         <div class="some1-is-gay">
-        <div class="some1-is-really-gay">
-            <h3 class="gay-sex">Dispenser</h3>
-            <p>Almost out of links? You can get some links below! More links and services coming soon.</p>
-            <div class="buttons-container">
-                <button class="button">Point Blank</button>
-                <button class="button">Electrical Proxies</button>
-                <button class="button">Coming Soon</button>
-                <button class="button">Coming Soon</button>
-                <button class="button">Coming Soon</button>
-                <button class="button">Coming Soon</button>
+            <div class="some1-is-really-gay">
+                <h3 class="gay-sex">Dispenser</h3>
+                <p>Almost out of links? You can get some links below! More links and services coming soon.</p>
+                <div class="buttons-container">
+                    <button class="button">Point Blank</button>
+                    <button class="button">Electrical Proxies</button>
+                    <button class="button">Coming Soon</button>
                 </div>
-            </div>
             </div>
         </div>
-                <div id="popup" class="popup-container">
-                    <div class="popup-content">
-                        <p id="popup-link"></p>
-                            <div class="close-button-container">
-                            <span class="close-button">Close</span>
-                        </div>
-                    </div>
-                </div>
+    </div>
+    <div id="popup" class="popup-container">
+        <div class="popup-content">
+            <p id="popup-link"></p>
+            <div class="close-button-container">
+                <span class="close-button">Close</span>
+            </div>
+        </div>
+    </div>
     <div id="sidebar" class="sidebar">
         <div class="please-tell-me-how-to-use-pico-css">
             <h3>Menu</h3>
         </div>
         <button id="close-sidebar-btn">&times;</button>
         <div id="i-hate-life">
-            <a href="/index.html" ><i class="fas fa-globe" style="padding: 4px"></i>  Proxy</a>
-            <a href="/links.html"><i class="fa-solid fa-box-open"  style="padding: 4px"></i>  Dispenser</a>
-            <a href="/settings.html"><i class="fa-solid fa-gear"  style="padding: 4px"></i>  Settings</a>
+            <a href="/index.html"><i class="fas fa-globe" style="padding: 4px"></i> Proxy</a>
+            <a href="/links.html"><i class="fa-solid fa-box-open" style="padding: 4px"></i> Dispenser</a>
+            <a href="/settings.html"><i class="fa-solid fa-gear" style="padding: 4px"></i> Settings</a>
 
         </div>
         <div class="please-check-these-out">
@@ -294,48 +300,50 @@
         </div>
         <script>
             document.addEventListener('DOMContentLoaded', function () {
-    
-// how did i break this 100 times
-    function toggleSidebar() {
-        var sidebar = document.getElementById('sidebar');
-        var mainContent = document.getElementById('main-content');
-        if (sidebar.style.left === "-250px") {
-            sidebar.style.left = "0";
-            sidebar.classList.add('active');
-            mainContent.style.filter = "blur(5px)"; 
-        } else {
-            sidebar.style.left = "-250px";
-            sidebar.classList.remove('active');
-            mainContent.style.filter = "";
-        }
-    }
 
-    const closeButton = document.getElementById('close-sidebar-btn');
-    closeButton.addEventListener('click', function () {
-        const sidebar = document.getElementById('sidebar');
-        if (sidebar.classList.contains('active')) {
-            sidebar.style.left = '-250px';
-            sidebar.classList.remove('active');
-            document.getElementById('main-content').style.filter = ""; 
-        }
-    });
+                // how did i break this 100 times
+                // sidebar thing
+                function toggleSidebar() {
+                    var sidebar = document.getElementById('sidebar');
+                    var mainContent = document.getElementById('main-content');
+                    if (!sidebar.classList.contains('active')) {
+                        sidebar.style.left = "0";
+                        sidebar.classList.add('active');
+                        document.getElementById('main-content').classList.add('blur-background');
+                    } else {
+                        sidebar.style.left = "-250px";
+                        sidebar.classList.remove('active');
+                        document.getElementById('main-content').classList.remove('blur-background');
+                    }
+                }
 
-    document.addEventListener('mousedown', function (event) {
-        const sidebar = document.getElementById('sidebar');
-        const closeButton = document.getElementById('close-sidebar-btn');
+                const closeButton = document.getElementById('close-sidebar-btn');
+                closeButton.addEventListener('click', function () {
+                    const sidebar = document.getElementById('sidebar');
+                    if (sidebar.classList.contains('active')) {
+                        sidebar.style.left = '-250px';
+                        sidebar.classList.remove('active');
+                        document.getElementById('main-content').style.filter = "";
+                    }
+                });
 
-        if (!sidebar.contains(event.target) && !closeButton.contains(event.target)) {
-            if (sidebar.classList.contains('active')) {
-                sidebar.style.left = '-250px';
-                sidebar.classList.remove('active');
-                document.getElementById('main-content').style.filter = ""; 
-            }
-        }
-    });
+                document.addEventListener('mousedown', function (event) {
+                    const sidebar = document.getElementById('sidebar');
+                    const closeButton = document.getElementById('close-sidebar-btn');
 
-    document.querySelector('svg').addEventListener('click', toggleSidebar);
-});
+                    if (!sidebar.contains(event.target) && !closeButton.contains(event.target)) {
+                        if (sidebar.classList.contains('active')) {
+                            sidebar.style.left = '-250px';
+                            sidebar.classList.remove('active');
+                            document.getElementById('main-content').style.filter = "";
+                        }
+                    }
+                });
 
-                    </script>
+                document.querySelector('svg').addEventListener('click', toggleSidebar);
+            });
+
+        </script>
 </body>
+
 </html>

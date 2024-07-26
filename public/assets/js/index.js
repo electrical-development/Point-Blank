@@ -3,22 +3,9 @@ const address = document.getElementById("uv-address");
 const error = document.getElementById("uv-error");
 const errorCode = document.getElementById("uv-error-code");
 
-
 const Point = [
     "point://dino",
 ]
-
-async function registerSW() {
-    let wispUrl = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/wisp/";
-    await BareMux.SetTransport("EpxMod.EpoxyClient", { wisp: wispUrl });
-    try {
-        await navigator.serviceWorker.register("/uv/sw.js",  { scope: __uv$config.prefix }); 
-        console.log("Service worker registered.");
-    } catch (err) {
-        console.error("Failed to register service worker.");
-        throw err;
-    }   
-}
 
 function search(input, template) {
     try {
@@ -27,7 +14,7 @@ function search(input, template) {
     }
 
     try {
-        const url = new URL(`http://${input}`);
+        const url = new URL(`https://${input}`);
         if (url.hostname.includes(".")) return url.toString();
     } catch (err) {
     }
@@ -47,19 +34,14 @@ function containsPointKeyword(input, PointList) {
 form.addEventListener('submit', async (event) => {
     event.preventDefault();
 
-    try {
-        await registerSW();
-    } catch (err) {
-        error.textContent = "Failed to register service worker.";
-        errorCode.textContent = err.toString();
-        throw err;
-    }
-    if (containsPointKeyword(address.value, Point)) {
-        location.replace('/uv/pbSW/hvtrs8%2F-odfnile%2Fdknm-eaoe%2Cfkrgbcsgarp%2Ccmm')
-    }
-    else {
-        const url = search(address.value, "https://www.google.com/search?q=%s");
+    if (window.chemicalLoaded) {
+        if (containsPointKeyword(address.value, Point)) {
+            location.replace('/uv/pbSW/hvtrs8%2F-odfnile%2Fdknm-eaoe%2Cfkrgbcsgarp%2Ccmm')
+        }
+        else {
+            const url = search(address.value, "https://www.google.com/search?q=%s");
 
-        location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
+            location.href = await window.chemicalEncode(url);
+        }
     }
 });
