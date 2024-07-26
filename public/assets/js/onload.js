@@ -33,22 +33,24 @@ addEventListener("DOMContentLoaded", (event) => {
         //add an event listener for the visibility state
         document.addEventListener("visibilitychange", (event) => {
 
-        if (document.visibilityState == "visible") {
-        //if the tab is active currently
-        console.log("Tab is active")
-        document.title = "Point Blank";
-        favicon.setAttribute("href", "/assets/img/favicon.png");  
-        console.log("Disabling")
-        } else {
-            //if the tab becomes unactive
-            console.log("tab is inactive")
-            //set it to google docs
-            document.title = "Google Docs";
-            favicon.setAttribute("href", "/assets/img/docs.png");  
-            console.log("Enabling!")
-        }});
+            if (document.visibilityState == "visible") {
+                //if the tab is active currently
+                console.log("Tab is active")
+                document.title = "Point Blank";
+                favicon.setAttribute("href", "/assets/img/favicon.png");
+                console.log("Disabling")
+            } else {
+                //if the tab becomes unactive
+                console.log("tab is inactive")
+                //set it to google docs
+                document.title = "Google Docs";
+                favicon.setAttribute("href", "/assets/img/docs.png");
+                console.log("Enabling!")
+            }
+        });
     }
-else {
-    //if clickoff cloking is not enabled
-    console.log(`Clickoff Cloaking Disabled! Defaulting..`)
-}});
+    else {
+        //if clickoff cloking is not enabled
+        console.log(`Clickoff Cloaking Disabled! Defaulting..`)
+    }
+});

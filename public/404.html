@@ -19,6 +19,14 @@
     <script src="./assets/js/settings.js"></script>
     <script src="./assets/js/onload.js"></script>
     <style>
+        .git2 {
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            padding: 10px !important;
+        }
+    </style>
+    <style>
         * {
             background-color: #13171f;
 
@@ -142,16 +150,16 @@
             <h1 style="text-align:center; color:white;">404 Not Found</h1>
             <p style="text-align:center; color:white;">92831</p>
         </svg>
-        </div>
+    </div>
     <div id="sidebar" class="sidebar">
         <div class="please-tell-me-how-to-use-pico-css">
             <h3>Menu</h3>
         </div>
         <button id="close-sidebar-btn">&times;</button>
         <div id="i-hate-life">
-            <a href="/index.html" ><i class="fas fa-globe" style="padding: 4px"></i>  Proxy</a>
-            <a href="/links.html"><i class="fa-solid fa-box-open"  style="padding: 4px"></i>  Dispenser</a>
-            <a href="/settings.html"><i class="fa-solid fa-gear"  style="padding: 4px"></i>  Settings</a>
+            <a href="/index.html"><i class="fas fa-globe" style="padding: 4px"></i> Proxy</a>
+            <a href="/links.html"><i class="fa-solid fa-box-open" style="padding: 4px"></i> Dispenser</a>
+            <a href="/settings.html"><i class="fa-solid fa-gear" style="padding: 4px"></i> Settings</a>
 
         </div>
         <div class="please-check-these-out">
@@ -168,7 +176,7 @@
                 function toggleSidebar() {
                     var sidebar = document.getElementById('sidebar');
                     var mainContent = document.getElementById('main-content');
-                    if (sidebar.style.left === "-250px") {
+                    if (!sidebar.classList.contains('active')) {
                         sidebar.style.left = "0";
                         sidebar.classList.add('active');
                         document.getElementById('main-content').classList.add('blur-background');
@@ -204,6 +212,7 @@
 
                 document.querySelector('svg').addEventListener('click', toggleSidebar);
             });
-                    </script>
+        </script>
 </body>
+
 </html>
