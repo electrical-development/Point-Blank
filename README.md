@@ -4,17 +4,14 @@
 A UV based proxy For TN 2024 Proxathon theme of minimalism. Made by the Electrical Development team ad according to that apple guy chat gpt but if he says that again i will use my gay femboy superpowers on him
 
 also according to him we skidded
-# How to use
+## Installation
+Run these commands in your terminal to use Point Blank
 
-```git clone https://github.com/electrical-development/Point-Blank```
-
-
-```cd Point-Blank```
-
-
-```npm install```
-
-
-```npm start```
+```
+git clone https://github.com/electrical-development/Point-Blank.git
+cd Point-Blank
+npm install
+npm start
+```
 
 femboy friday
